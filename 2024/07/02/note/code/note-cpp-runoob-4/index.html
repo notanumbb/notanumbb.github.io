@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>runoob_cpp 笔记 (4): C++ 中的函数：定义，参数，返回值与函数重载 | notanumbb's blog</title><meta name="author" content="notanumbb"><meta name="copyright" content="notanumbb"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从 runoob 开始随手学 cpp (4)  介绍 C++ 中的函数基本操作，形式参数调用，多类型返回与函数重载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="runoob_cpp 笔记 (4): C++ 中的函数：定义，参数，返回值与函数重载">
+<meta property="og:url" content="http://example.com/2024/07/02/note/code/note-cpp-runoob-4/index.html">
+<meta property="og:site_name" content="notanumbb&#39;s blog">
+<meta property="og:description" content="从 runoob 开始随手学 cpp (4)  介绍 C++ 中的函数基本操作，形式参数调用，多类型返回与函数重载">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/nisepanda_round.png">
+<meta property="article:published_time" content="2024-07-02T06:56:45.000Z">
+<meta property="article:modified_time" content="2024-07-08T07:11:35.376Z">
+<meta property="article:author" content="notanumbb">
+<meta property="article:tag" content="cpp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/nisepanda_round.png"><link rel="shortcut icon" href="/img/nisepanda_round_128.png"><link rel="canonical" href="http://example.com/2024/07/02/note/code/note-cpp-runoob-4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><meta/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":false,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'runoob_cpp 笔记 (4): C++ 中的函数：定义，参数，返回值与函数重载',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2024-07-08 15:11:35'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/nisepanda_round.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-anchor"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="notanumbb's blog"></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-anchor"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">runoob_cpp 笔记 (4): C++ 中的函数：定义，参数，返回值与函数重载</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2024-07-02T06:56:45.000Z" title="发表于 2024-07-02 14:56:45">2024-07-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/code/">code</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/code/cpp/">cpp</a></span></div><div class="meta-secondline"></div></div></div><article class="post-content" id="article-container"><link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"
+/>
+<br/>
+<blockquote>
+<p>笔记大量参考 <a target="_blank" rel="noopener" href="https://www.runoob.com/cplusplus/cpp-tutorial.html">菜鸟教程</a>；</p>
+</blockquote>
+<p>这节考虑 C++ 中的函数，作用，结构与定义；</p>
+<p>每个 C++ 程序都至少有一个函数，即主函数 <strong>main()</strong>，作为程序执行的入口；</p>
+<ul>
+<li>函数定义，声明与调用等基本操作</li>
+<li>函数参数 (形式参数) 的使用，多种形式参数调用方法</li>
+<li>函数返回值与特殊的返回方式</li>
+<li>函数重载</li>
+</ul>
+<br/>
+<br/>
+<hr>
+<h2 id="4-1-函数定义，声明与调用">4.1 函数定义，声明与调用</h2>
+<h3 id="函数定义">函数定义</h3>
+<p>定义函数的一般形式为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">return_type <span class="title">function_name</span><span class="params">(param_type param_name, param_type param_name)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   body of the function</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>return_type</code>: 返回类型，表示函数返回值的数据类型；</li>
+<li><code>function_name</code>：函数名</li>
+<li><code>param_list</code>：表示输入的参数，按照 <code>type name</code> 的形式给定，多个参数以 <code>,</code> 隔开；</li>
+</ul>
+<br/>
+<h3 id="函数声明">函数声明</h3>
+<p>假设在文件 A 内定义了一个函数主体 (非 <code>main()</code> 函数)，则无论是在本文件 A 内使用，还是在外部文件 B 内使用，都需要在调用函数的文件开头进行函数声明：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">return_type <span class="title">function_name</span><span class="params">(param_type param_name, param_type param_name)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>注意在声明时，这里的 <code>param_name</code> 并不是必须的，但是一定要注明参数的类型；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span> num1, <span class="type">int</span> num2)</span></span>;   <span class="comment">// 函数声明</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>)</span></span>;             <span class="comment">// 同上有效</span></span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="调用函数">调用函数</h3>
+<p>进行函数声明和定义后，可以在其他位置使用函数：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return_var = <span class="built_in">function_name</span>(param1_name, param2_name);</span><br></pre></td></tr></table></figure>
+<p>合在一起举个例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 函数声明，放在整体文件的开头；</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span> num1, <span class="type">int</span> num2)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 主函数，程序执行的入口 main 函数；</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> a = <span class="number">100</span>;</span><br><span class="line">   <span class="type">int</span> b = <span class="number">200</span>;</span><br><span class="line">   <span class="type">int</span> ret;</span><br><span class="line">   ret = <span class="built_in">max</span>(a, b); <span class="comment">// 调用函数</span></span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;Max value is : &quot;</span> &lt;&lt; ret &lt;&lt; endl;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 定义函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">max</span><span class="params">(<span class="type">int</span> num1, <span class="type">int</span> num2)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> result;</span><br><span class="line">   <span class="keyword">if</span> (num1 &gt; num2)</span><br><span class="line">      result = num1;</span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">      result = num2;</span><br><span class="line">   <span class="keyword">return</span> result; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="参数默认值">参数默认值</h3>
+<p>也可以为某些参数规定默认值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">function_name</span>(type param1, type param2=<span class="keyword">default</span>);</span><br></pre></td></tr></table></figure>
+<p><code>=default</code> 为形式参数规定默认值，如果实际参数的值留空，则使用这个默认值；</p>
+<p>注意规定默认值时，所有有默认值的参数要一起全部扔到最右边，举例</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b = <span class="number">1</span>, <span class="type">int</span> c = <span class="number">1</span>)</span></span>;  <span class="comment">// success</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">int</span> a = <span class="number">1</span>, <span class="type">int</span> b, <span class="type">int</span> c = <span class="number">1</span>)</span></span>;  <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>由于函数调用时传入参数是从左到右实现的，所以没有给定默认值的参数是一定要传递的，全部一起放在左边；</li>
+<li>对于第一行的定义，此时由于传入参数强制从左到右进行且不能指定 (区别于 python 那种 <code>func(a = 1, b = 2)</code>)，此时无法给定 <code>a, c</code> 的值而对 <code>b</code> 使用默认；</li>
+</ul>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p></p>
+<p>建议在函数声明时再指定参数的默认值；</p>
+<ul>
+<li>对于 g++ 编译器，声明和定义时都可以指定参数的默认值；</li>
+<li>对于 MSVC 编译器，如果声明存在则只允许在声明时指定默认值，不允许在定义时给定；</li>
+<li>大部分情况函数定义的文件不会对外展示，在对方只看到函数声明的情况下，建议全部在声明的时候进行默认值的指定</li>
+</ul>
+</div>
+<br/>
+<br/>
+<h2 id="4-2-函数参数">4.2 函数参数</h2>
+<p>函数使用参数，则必须声明接受参数值的变量。这些变量称为函数的 <strong>形式参数</strong>；形式参数就像函数内的其他局部变量，在进入函数时被创建，退出函数时被销毁</p>
+<p>调用函数时，有三种向函数传递参数的方式：</p>
+<br/>
+<h3 id="传值调用">传值调用</h3>
+<p>也就是把参数的实际值复制给函数的形式参数；在这种情况下，修改函数内的形式参数不会影响实际参数。</p>
+<p>传值调用是 C++ 默认的函数参数传递方法；</p>
+<p>举个例子，对于下面交换值的函数 <code>swap()</code>;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="comment">// 局部变量声明</span></span><br><span class="line">   <span class="type">int</span> a = <span class="number">100</span>;</span><br><span class="line">   <span class="type">int</span> b = <span class="number">200</span>;</span><br><span class="line"> </span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换前，a 的值：&quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换前，b 的值：&quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">   <span class="comment">// 调用函数来交换值</span></span><br><span class="line">   <span class="built_in">swap</span>(a, b);</span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换后，a 的值：&quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换后，b 的值：&quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数定义</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> temp;</span><br><span class="line"> </span><br><span class="line">   temp = x; <span class="comment">/* 保存 x 的值 */</span></span><br><span class="line">   x = y;    <span class="comment">/* 把 y 赋值给 x */</span></span><br><span class="line">   y = temp; <span class="comment">/* 把 x 赋值给 y */</span></span><br><span class="line">  </span><br><span class="line">   <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时输出结果：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">交换前，a 的值： <span class="number">100</span></span><br><span class="line">交换前，b 的值： <span class="number">200</span></span><br><span class="line">交换后，a 的值： <span class="number">100</span></span><br><span class="line">交换后，b 的值： <span class="number">200</span></span><br></pre></td></tr></table></figure>
+<p>也就是说，即使函数对形式参数 <code>x, y</code> 进行了值的交换，实际上并不改变原始的变量 <code>a, b</code> 的取值；</p>
+<p>实际上执行时，是先创造 <code>x, y</code> 两个新的参数，再将对应的 <code>a, b</code> 的值赋给 <code>x, y</code>，再对 <code>x, y</code> 进行函数操作；执行结束后，形式参数 <code>x, y</code> 被销毁，也无法再访问；</p>
+<br/>
+<h3 id="指针调用">指针调用</h3>
+<p>也就是把参数的地址复制给形式参数。在函数内，该地址用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数；</p>
+<ul>
+<li>此时的函数参数需要被声明为指针类型；</li>
+<li>调用函数时传入的是对应变量的指针</li>
+</ul>
+<p>举个例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 函数声明，此时的参数是两个指针</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> *x, <span class="type">int</span> *y)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="comment">// 局部变量声明</span></span><br><span class="line">   <span class="type">int</span> a = <span class="number">100</span>;</span><br><span class="line">   <span class="type">int</span> b = <span class="number">200</span>;</span><br><span class="line"> </span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换前，a 的值：&quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换前，b 的值：&quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">   <span class="comment">// 调用函数来交换值，传入的是 a b 两个变量的地址；</span></span><br><span class="line">   <span class="built_in">swap</span>(&amp;a, &amp;b);</span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换后，a 的值：&quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换后，b 的值：&quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数定义</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> *x, <span class="type">int</span> *y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> temp;</span><br><span class="line">   temp = *x;    <span class="comment">/* 保存地址 x 的值 */</span></span><br><span class="line">   *x = *y;        <span class="comment">/* 把 y 指向的地址的值，赋值给 x 指向的地址*/</span></span><br><span class="line">   *y = temp;    <span class="comment">/* 同上 */</span></span><br><span class="line">  </span><br><span class="line">   <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时的输出为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">交换前，a 的值： <span class="number">100</span></span><br><span class="line">交换前，b 的值： <span class="number">200</span></span><br><span class="line">交换后，a 的值： <span class="number">200</span></span><br><span class="line">交换后，b 的值： <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<p>可以看到函数执行后，原本的变量的值也被一并改变了；</p>
+<p>此时执行时，先创建形式参数 (指针变量) <code>x, y</code>，再让形式参数 (指针) 指向和 <code>a, b</code>  (将地址传入给指针，类似 <code>x = &amp;a</code>)，再在函数内部对 <code>x, y</code> 指向的地址进行操作 (函数体内部使用的都是 <code>*x, *y</code>)，此时对应的 <code>a, b</code> 的值也会被改变；</p>
+<br/>
+<h3 id="引用调用">引用调用</h3>
+<p>引用调用中，把引用的地址复制给形式参数。在函数内，该引用用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。</p>
+<ul>
+<li>此时需要将形式参数定义为引用类型</li>
+<li>传入参数时直接传入原变量</li>
+</ul>
+<p>引用传递避免了传递大对象时的拷贝开销，提高了效率；类似地，我们也可以将返回值在外部定义好，再通过引用传递进入函数，直接通过函数修改外部定义好的返回值，同样可以避免返回值拷贝的开销</p>
+<p>举个例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 函数声明</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> &amp;x, <span class="type">int</span> &amp;y)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="comment">// 局部变量声明</span></span><br><span class="line">   <span class="type">int</span> a = <span class="number">100</span>;</span><br><span class="line">   <span class="type">int</span> b = <span class="number">200</span>;</span><br><span class="line"> </span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换前，a 的值：&quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换前，b 的值：&quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">   <span class="comment">// 调用函数来交换值</span></span><br><span class="line">   <span class="built_in">swap</span>(a, b); <span class="comment">// 此时可以理解为执行了 int &amp;x = a; 的步骤，由此 x 成为了 a 对应内存空间的别名 (引用)</span></span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换后，a 的值：&quot;</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;交换后，b 的值：&quot;</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数定义</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap</span><span class="params">(<span class="type">int</span> &amp;x, <span class="type">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="comment">// 此时 x, y 是原始变量 a, b 对应的内存空间的别名，则对 x, y 进行修改也会导致 a, b 对应的值改变;</span></span><br><span class="line">   <span class="type">int</span> temp;</span><br><span class="line">   temp = x; <span class="comment">/* 保存地址 x 的值 */</span></span><br><span class="line">   x = y;    <span class="comment">/* 把 y 赋值给 x */</span></span><br><span class="line">   y = temp; <span class="comment">/* 把 x 赋值给 y  */</span></span><br><span class="line">  </span><br><span class="line">   <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">交换前，a 的值： <span class="number">100</span></span><br><span class="line">交换前，b 的值： <span class="number">200</span></span><br><span class="line">交换后，a 的值： <span class="number">200</span></span><br><span class="line">交换后，b 的值： <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<p>此时创建形式参数 <code>x, y</code> 后，类似执行的是 <code>int&amp; x = a</code> 的操作，后续对 <code>x, y</code> 内的操作实际上也就是对 <code>a, b</code> 的直接操作 (<code>x, y</code> 是原始变量 <code>a, b</code> 对应的内存空间的别名) ，所以也会改变原变量的值</p>
+<br/>
+<h3 id="数组作为参数传入">数组作为参数传入</h3>
+<p>在函数中也可以传递一个数组作为参数</p>
+<p>下面的几种定义形式都是合法的：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">myFunction</span><span class="params">(<span class="type">int</span> *param)</span></span>&#123;&#125;     <span class="comment">// 以指针的形式传入</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">myFunction</span><span class="params">(<span class="type">int</span> param[<span class="number">10</span>])</span></span>&#123;&#125;  <span class="comment">// 给定一个已经指定大小的数组</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">myFunction</span><span class="params">(<span class="type">int</span> param[])</span></span>&#123;&#125;    <span class="comment">// 给定一个未定义大小的数组</span></span><br></pre></td></tr></table></figure>
+<p>调用时都使用：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> array[<span class="number">10</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">myFuncion</span>(array);</span><br></pre></td></tr></table></figure>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p></p>
+<p>就函数而言，数组的长度是无关紧要的 (可以不给定)，因为 C++ 不会对形式参数执行边界检查</p>
+</div>
+<br/>
+<br/>
+<h2 id="4-3-函数返回值">4.3 函数返回值</h2>
+<h3 id="返回单个值">返回单个值</h3>
+<p>在函数末尾加入返回值：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> varname;</span><br></pre></td></tr></table></figure>
+<p>再在函数调用时执行：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ret = <span class="built_in">funcname</span>(a);</span><br></pre></td></tr></table></figure>
+<p>此时将函数内变量 <code>varname</code> 的值作为返回值输出到函数外部变量 <code>ret</code></p>
+<p>注意这里的 <code>varname</code> 的数据类型要与函数定义时的规定的返回值数据类型相同；</p>
+<br/>
+<h3 id="返回指针">返回指针</h3>
+<p>声明一个返回指针的函数：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span>* <span class="title">myFunction</span><span class="params">()</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>但是注意到，即使函数内部存在一个局部数组，当函数执行完毕后数组会自动销毁，指向它的指针也是无效的；换言之，c++ 并不支持在函数外返回局部变量的地址；</p>
+<p>一个简单的方法是将需要返回的局部变量设为 static 类型，举个例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span>* <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> a = <span class="number">10</span>;  <span class="comment">// 将 a 设为 static，执行后保留</span></span><br><span class="line">    <span class="type">int</span>* ptr = &amp;a;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;ptr  = &quot;</span> &lt;&lt; ptr &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;*ptr = &quot;</span> &lt;&lt; *ptr &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> ptr; <span class="comment">// 此时返回的值是 &amp;a = a 的地址，在主函数中可以通过这个地址找到静态变量 a</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span>* ptr = <span class="built_in">func</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;----- main() -----&quot;</span> &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;ptr  = &quot;</span> &lt;&lt; ptr &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;*ptr = &quot;</span> &lt;&lt; *ptr &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时的输出：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ptr  = <span class="number">00</span>A6C00C</span><br><span class="line">*ptr = <span class="number">10</span></span><br><span class="line">----- <span class="built_in">main</span>() -----</span><br><span class="line">ptr  = <span class="number">00</span>A6C00C</span><br><span class="line">*ptr = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>注意如果将这里的 line 5 的 <code>static</code> 删掉，输出为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ptr  = <span class="number">00B</span>6F760</span><br><span class="line">*ptr = <span class="number">10</span></span><br><span class="line">----- <span class="built_in">main</span>() -----</span><br><span class="line">ptr  = <span class="number">00B</span>6F760</span><br><span class="line">*ptr = <span class="number">2060364152</span></span><br></pre></td></tr></table></figure>
+<p>也就是说，虽然将这里的 <code>ptr</code> 的值 / a 的地址传递出来了，但由于 a 本身已经被销毁，还是无法读取到这里的存储值；</p>
+<br/>
+<h3 id="返回引用">返回引用</h3>
+<p>类似地，函数的返回值也可以是一个引用：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">type&amp; <span class="title">func_name</span><span class="params">(p_type p_name, ...)</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>上述定义表示函数的返回值是一个类型为 <code>type</code> 的引用；</p>
+<p>举个例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="type">double</span> vals[] = &#123;<span class="number">10.1</span>, <span class="number">12.6</span>, <span class="number">33.1</span>, <span class="number">24.1</span>, <span class="number">50.0</span>&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">double</span>&amp; <span class="title">setValues</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;  </span><br><span class="line">   <span class="type">double</span>&amp; ref = vals[i];    </span><br><span class="line">   <span class="keyword">return</span> ref;   <span class="comment">// 返回第 i 个元素的引用，ref 是一个引用变量，ref 可以看作是 vals[i] 的一个别名</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 要调用上面定义函数的主函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="built_in">setValues</span>(<span class="number">1</span>) = <span class="number">20.23</span>; </span><br><span class="line">    	<span class="comment">// 此时 setValues(1) 返回的为 vals[1] 的一个别名，对这个别名赋值也就是改变 vals 的第 2 个元素</span></span><br><span class="line">   <span class="built_in">setValues</span>(<span class="number">3</span>) = <span class="number">70.8</span>;  </span><br><span class="line">    	<span class="comment">// 同理改变第 4 个元素</span></span><br><span class="line"> </span><br><span class="line">   cout &lt;&lt; <span class="string">&quot;改变后的值&quot;</span> &lt;&lt; endl;</span><br><span class="line">   <span class="keyword">for</span> ( <span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ )</span><br><span class="line">   &#123;</span><br><span class="line">       cout &lt;&lt; <span class="string">&quot;vals[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">       cout &lt;&lt; vals[i] &lt;&lt; endl;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时的输出；注意到通过子函数返回数组的元素位置引用后，在对应 <code>main()</code> 函数的部分进行修改，最终实现对于原数组 (外部变量) 的更改：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vals[<span class="number">0</span>] = <span class="number">10.1</span></span><br><span class="line">vals[<span class="number">1</span>] = <span class="number">20.23</span></span><br><span class="line">vals[<span class="number">2</span>] = <span class="number">33.1</span></span><br><span class="line">vals[<span class="number">3</span>] = <span class="number">70.8</span></span><br><span class="line">vals[<span class="number">4</span>] = <span class="number">50</span></span><br></pre></td></tr></table></figure>
+<br/>
+<h3 id="返回多个值-数组">返回多个值 (数组)</h3>
+<p>综上，既然函数可以返回指针，那么也就可以通过返回一个数组的方式来让一个函数返回多个值</p>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p></p>
+<p>回忆：定义数组 <code>int arr[5];</code> 后，<code>arr</code> 实际上是一个指向数组的第一个元素的指针；</p>
+<p>可以类比返回指针的方式来让函数返回这个数组</p>
+</div>
+<p>先声明一个返回指针的函数，</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">type * <span class="title">funcname</span><span class="params">()</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>类似地，即使函数内部存在一个局部数组，当函数执行完毕后数组会自动销毁，指向它的指针也是无效的；</p>
+<p>针对数组这里有两个方法：</p>
+<ol>
+<li>定义需要的局部变量 (也就是这里的数组) 为 static 变量</li>
+</ol>
+<p>举个例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span>* <span class="title">myFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">static</span> <span class="type">int</span> myArray[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">   <span class="keyword">return</span> myArray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> *p;</span><br><span class="line">	p = <span class="built_in">myFunction</span>(); <span class="comment">// 本质 myArray 是指向静态数组 myArray 第一个元素的指针</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ )</span><br><span class="line">    &#123;</span><br><span class="line">    	cout &lt;&lt; *(p + i) &lt;&lt; endl; <span class="comment">// 通过指针操作逐个访问数组内的元素</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用动态分配数组，分配时使用 <code>new</code>，结束时用 <code>delete</code> 释放；</li>
+</ol>
+<p>此时在函数内部分配的数组在函数结束时不会自动释放，可以在函数外使用，使用后再释放就行；</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span>* <span class="title">myFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span>* myArray = <span class="keyword">new</span> <span class="type">int</span>[<span class="number">3</span>];</span><br><span class="line">   myArray[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">   myArray[<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">   myArray[<span class="number">2</span>] = <span class="number">3</span>;</span><br><span class="line">   <span class="keyword">return</span> myArray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span>* result = <span class="built_in">myFunction</span>();</span><br><span class="line">   <span class="comment">// 使用 result 的语句 ...</span></span><br><span class="line">   <span class="keyword">delete</span>[] result; <span class="comment">// 使用后通过 delete 释放空间</span></span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+<br/>
+<h2 id="4-4-函数重载">4.4 函数重载</h2>
+<p>在同一个作用域内，可以声明几个功能类似的同名函数，但是这些同名函数的形式参数必须不同；</p>
+<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p><p></p>
+<p>重载要求形式参数的 1) 个数；2) 类型；3) 顺序；至少一项存在不同；</p>
+<p>只是返回类型不同是不允许的</p>
+</div>
+<p>举个例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">printData</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">public</span>: <span class="comment">// 函数重载，这里的函数同名，但是形参类型不同</span></span><br><span class="line">      <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;整数为: &quot;</span> &lt;&lt; i &lt;&lt; endl;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">double</span>  f)</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;浮点数为: &quot;</span> &lt;&lt; f &lt;&lt; endl;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">char</span> c[])</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;字符串为: &quot;</span> &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   printData pd;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">// 输出整数</span></span><br><span class="line">   pd.<span class="built_in">print</span>(<span class="number">5</span>);</span><br><span class="line">   <span class="comment">// 输出浮点数</span></span><br><span class="line">   pd.<span class="built_in">print</span>(<span class="number">500.263</span>);</span><br><span class="line">   <span class="comment">// 输出字符串</span></span><br><span class="line">   <span class="type">char</span> c[] = <span class="string">&quot;Hello C++&quot;</span>;</span><br><span class="line">   pd.<span class="built_in">print</span>(c);</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+<br/>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/notanumbb">notanumbb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>本文链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/07/02/note/code/note-cpp-runoob-4/">http://example.com/2024/07/02/note/code/note-cpp-runoob-4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/cpp/">cpp</a></div><div class="post_share"></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/nisepanda_round.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">notanumbb</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/notanumbb" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:notanumbb@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://weibo.com/u/7903578872" target="_blank" title="weibo"><i class="fa-brands fa-weibo" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn"></i><span>in progress</span></div><div class="announcement_content">我感觉 abtest 的 ab 是 abuse 的 ab
+最近很沮丧
+  [now playing] triangle strategy
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%EF%BC%8C%E5%A3%B0%E6%98%8E%E4%B8%8E%E8%B0%83%E7%94%A8"><span class="toc-text">4.1 函数定义，声明与调用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="toc-text">函数定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E"><span class="toc-text">函数声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0"><span class="toc-text">调用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">参数默认值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-text">4.2 函数参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E5%80%BC%E8%B0%83%E7%94%A8"><span class="toc-text">传值调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E8%B0%83%E7%94%A8"><span class="toc-text">指针调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%B0%83%E7%94%A8"><span class="toc-text">引用调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E4%BC%A0%E5%85%A5"><span class="toc-text">数组作为参数传入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">4.3 函数返回值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%8D%95%E4%B8%AA%E5%80%BC"><span class="toc-text">返回单个值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E6%8C%87%E9%92%88"><span class="toc-text">返回指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%BC%95%E7%94%A8"><span class="toc-text">返回引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%A4%9A%E4%B8%AA%E5%80%BC-%E6%95%B0%E7%BB%84"><span class="toc-text">返回多个值 (数组)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="toc-text">4.4 函数重载</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By notanumbb</div><div class="framework-info"><span>Powered by </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div></div></body></html>

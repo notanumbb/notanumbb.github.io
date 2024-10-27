@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>hexo + GitHub Page 搭建博客站点 | notanumbb's blog</title><meta name="author" content="notanumbb"><meta name="copyright" content="notanumbb"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="记录本站点搭建基本流程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo + GitHub Page 搭建博客站点">
+<meta property="og:url" content="http://example.com/2024/04/17/tools/tools-blog-init-md/index.html">
+<meta property="og:site_name" content="notanumbb&#39;s blog">
+<meta property="og:description" content="记录本站点搭建基本流程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/nisepanda_round.png">
+<meta property="article:published_time" content="2024-04-17T03:54:10.000Z">
+<meta property="article:modified_time" content="2024-10-27T11:47:10.636Z">
+<meta property="article:author" content="notanumbb">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/nisepanda_round.png"><link rel="shortcut icon" href="/img/nisepanda_round_128.png"><link rel="canonical" href="http://example.com/2024/04/17/tools/tools-blog-init-md/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><meta/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":false,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: false,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'hexo + GitHub Page 搭建博客站点',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: undefined,
+  isToc: true,
+  postUpdate: '2024-10-27 19:47:10'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/nisepanda_round.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-anchor"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="notanumbb's blog"></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-anchor"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">hexo + GitHub Page 搭建博客站点</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2024-04-17T03:54:10.000Z" title="发表于 2024-04-17 11:54:10">2024-04-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/tools/">tools</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/tools/blog/">blog</a></span></div><div class="meta-secondline"></div></div></div><article class="post-content" id="article-container"><p>记录本站点搭建基本流程</p>
+<br/>
+<br/>
+<hr>
+<h2 id="1-hexo-配置与部署">1 hexo 配置与部署</h2>
+<h3 id="安装-Hexo">安装 Hexo</h3>
+<p>首先检查配置</p>
+<ul>
+<li>Git</li>
+<li>node.js</li>
+</ul>
+<p>Hexo 是基于 Git 与 Node.js 运行的；基本环境搭建结束后，可以使用 <code>npm</code> 命令进行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>进入博客文件夹，进行初始化</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> my_folder</span><br><span class="line">hexo init  <span class="comment"># &lt;-- empty folder required</span></span><br></pre></td></tr></table></figure>
+<p>检查指定的文件夹目录如下</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── .gitignore</span><br><span class="line">├── _config.yml</span><br><span class="line">├── _config.landscape.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><code>.gitignore</code>：大家的好朋友 gitignore</p>
+</li>
+<li>
+<p><code>_config.yml</code>：网站配置信息，这是 Hexo 的 config 文件</p>
+</li>
+<li>
+<p><code>_config.themename.yml</code>：主题配置文件；init 的时候会初始化一个叫 landscape 的主题；</p>
+</li>
+<li>
+<p><code>package.json</code>：基本安装包与渲染引擎；<code>EJS</code> 和 <code>markdown</code> 都默认安装</p>
+</li>
+<li>
+<p><code>/scaffolds</code>：模板文件夹；内部放 <code>.md</code> 文件，新建文章中会默认填充模板的内容</p>
+</li>
+<li>
+<p><code>/_source</code>：用户文件夹</p>
+<ul>
+<li><code>/_drafts</code>：草稿文章，不会被渲染到 html 里；</li>
+<li><code>/_post</code>：正常可以发布的文章，以多个 <code>.md</code> 的形式存储，内部的文件会自动被渲染</li>
+</ul>
+</li>
+<li>
+<p><code>/theme</code>：主题文件夹，内含 html 文件渲染时的样式主题信息；</p>
+</li>
+<li>
+<p><code>/public</code>：执行第一次渲染后，会生成 public 文件夹；里面存储生成的静态网页文件</p>
+</li>
+</ul>
+<h3 id="部署到-GitHub-Page">部署到 GitHub Page</h3>
+<p>这里用 GitHub 托管，去 GitHub 上建库；</p>
+<ul>
+<li>repository name : <code>username.github.io</code></li>
+<li>visible : public；不氪金的 private repo 无法部署 GitHub page</li>
+</ul>
+<p>注意这里不要 add README 也不要做 clone 和 push，后续会直接使用 Hexo 进行管理</p>
+<p>安装两个部署用的插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure>
+<p>并配置文件夹下的 <code>_config.yml</code> 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git </span><br><span class="line">  repo: &lt;repository url&gt; <span class="comment"># ssh for github repo</span></span><br><span class="line">  branch: main  <span class="comment"># github default</span></span><br></pre></td></tr></table></figure>
+<p>注意这里填写的是 <code>ssh</code> 地址，形如 <code>git@github.com:username/username.github.io.git</code></p>
+<p>文件夹下执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+<p>等待片刻，访问 <code>https://username.github.io/</code>；</p>
+<br/>
+<br/>
+<h2 id="2-基本-hexo-命令">2 基本 hexo 命令</h2>
+<p><code>hexo new [layout] &lt;title&gt;</code></p>
+<p>新建一篇名为 <code>tilte.md</code> 的文章 (生成在 <code>source/_post/</code> 文件夹下)；layout 为模板名称，可选 (模板存储在 <code>scaffolds/</code> 下)</p>
+<p><code>hexo clean</code></p>
+<p>清空 <code>public</code> 文件夹</p>
+<p><code>hexo g</code></p>
+<p>也就是 generate；在 <code>public</code> 下渲染得到静态网页</p>
+<p><code>hexo s</code></p>
+<p>部署到本地，可以在 <code>http://localhost:4000/</code> 查看预览的网页 (具体端口号注意提示信息</p>
+<p><code>hexo s --debug</code></p>
+<p>以调试模式部署，此时随时更改主题文件等再刷新页面可以马上看到效果</p>
+<p><code>hexo d</code></p>
+<p>部署到服务器端 (比如这里的 GitHub Page)</p>
+<p><code>hexo new page pagename</code></p>
+<p>创建新页面，此时会自动在 source 下生成对应的文件夹，并内部生成默认的 <code>index.md</code> 文件；编辑文件进行内容展示；</p>
+<br/>
+<br/>
+<h2 id="3-picGo-Github-搭建图床">3 picGo + Github 搭建图床</h2>
+<p>Github 自建 public repo；</p>
+<p>picGo - 图床设置 - Github</p>
+<ul>
+<li>仓库名：<code>username/reponame</code></li>
+<li>branch：默认 <code>main</code></li>
+<li>设定 Token：Github - setting - 开发者选项部分，新建 Token，权限勾选 repo 的部分就行，expiration 最好选永久；记下来粘贴进来</li>
+<li>存储路径：设定后会自动在 repo 下建立对应的路径，以后都传输到这里；</li>
+</ul>
+<p>然后去 typora 设定服务；建议默认选择复制到 <code>./assets/</code> 文件夹，需要上传到博客的文章再手动右键选择上传，否则自己随便写写的都上传了会很麻烦 ...</p>
+<img src="https://raw.githubusercontent.com/notanumbb/blog-img-hosting/main/2024/image-20240416094939046.png" alt="image-20240416094939046" style="zoom:37%;" />
+<br/>
+<br/>
+<h2 id="4-markdown-渲染">4 markdown 渲染</h2>
+<p>建议使用 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-markdown-it">hexo-renderer-markdown-it</a>；原生 renderer 对于 GMD 的支持非常不友好，而 markdown-it 的优势在于对于三方插件的支持很不错</p>
+<p>所以说有时候太古怪会交不到好麻吉，但茫茫互联网上总能找到一个和你一样 (需求) 且写了 plugin 的朋友</p>
+<h3 id="basic">basic</h3>
+<p>先删除默认的 renderer 和其他任何已经安装的对象 (防冲突)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br></pre></td></tr></table></figure>
+<p>然后安装我们的好伙伴：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-renderer-markdown-it --save</span><br></pre></td></tr></table></figure>
+<p>然后在 Hexo 根目录的 <code>config</code> 文件添加：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># markdown renderer</span></span><br><span class="line"><span class="section"># hexo-renderer-markdown-it</span></span><br><span class="line">markdown:</span><br><span class="line">  render:</span><br><span class="line"><span class="code">    html: true</span></span><br><span class="line"><span class="code">    xhtmlOut: false</span></span><br><span class="line"><span class="code">    breaks: true</span></span><br><span class="line"><span class="code">    linkify: true</span></span><br><span class="line"><span class="code">    typographer: false</span></span><br><span class="line"><span class="code">  anchors:</span></span><br><span class="line"><span class="code">    permalink: false</span></span><br><span class="line"><span class="code">  plugins:</span></span><br><span class="line"><span class="code">    - markdown-it-footnote</span></span><br><span class="line"><span class="code">    - markdown-it-mark</span></span><br><span class="line"><span class="code">    - markdown-it-task-lists</span></span><br><span class="line"><span class="code">    - markdown-it-github-alerts</span></span><br></pre></td></tr></table></figure>
+<h3 id="plugins">plugins</h3>
+<p>添加插件：</p>
+<ul>
+<li>
+<p>先按照插件作者的要求安装 (建议 npm)</p>
+</li>
+<li>
+<p>然后在 Hexo 根目录的 <code>config</code> (如上部分) 添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plugins:</span><br><span class="line">  - markdown-it-footnote</span><br><span class="line">  - markdown-it-mark</span><br><span class="line">  - markdown-it-task-lists</span><br><span class="line">  - markdown-it-github-alerts</span><br><span class="line">  - &#x27;@renbaoshuo/markdown-it-katex&#x27;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>个人自用的几个：</p>
+<ol>
+<li>
+<p><code>markdown-it-footnote</code></p>
+<p>内置 plugin，不需要再重复安装；支持脚注语法 <code>[^1]</code></p>
+</li>
+<li>
+<p><code>markdown-it-mark</code></p>
+<p>内置 plugin，不需要再重复安装；支持高亮语法 <code>==heightlight==</code></p>
+</li>
+<li>
+<p><code>markdown-it-task-lists</code></p>
+<p>支持 GMD 风格的 checklist；详见 <a target="_blank" rel="noopener" href="https://github.com/revin/markdown-it-task-lists">markdown-it-task-lists</a></p>
+</li>
+<li>
+<p><code>markdown-it-github-alerts</code></p>
+<p>支持 GMD 风格的 alert 警告，形如 <code>&gt; [!note]</code></p>
+</li>
+<li>
+<p><code>'@renbaoshuo/markdown-it-katex'</code></p>
+<p>hexo-renderer-markdown-it 官方推荐的 <code>katex</code> 编译；按照教程安装就行，注意要在 post 前通过 html 语法引入 css，建议直接写到 template 里面这样每次新建的时候都会在。</p>
+<p>其实个人体感 <code>Mathjax 3.0</code> 的速度和 <code>katex</code> 已经相差不大了，但是前者不支持 <code>\\</code> 换行 (一概会被 html 转义为 <code>\</code>)，平常用 Typora 写作搞这出实在是受不了，对比官方 issue 提出这个问题的人也不少，挺好奇为啥就是一直没有得到解决。</p>
+<p>某种阿克琉斯之踵 ...</p>
+</li>
+</ol>
+<br/>
+<h3 id="bug-log">bug log</h3>
+<p>注意安装三方插件的时候经常会出现 <code>css</code> 设定缺失的问题，表现为网页设定颜色 / 风格不显示</p>
+<p>这种时候需要手动将 plugin 对象的 <code>css</code>设定加入主题的对应 <code>css</code>文件</p>
+<p>以 <code>markdown-it-github-alerts + butterfly</code> 主题举例：</p>
+<ul>
+<li>
+<p>查看 markdown-it-github-alerts 对象源码：基本样式定义于 <a target="_blank" rel="noopener" href="https://github.com/antfu/markdown-it-github-alerts/blob/main/styles/github-base.css">github-base.css</a>；对应配色方案定义于 <a target="_blank" rel="noopener" href="https://github.com/antfu/markdown-it-github-alerts/blob/main/styles/github-colors-light.css">github-colors-light.css</a></p>
+</li>
+<li>
+<p>找到 <code>themes/butterfly/source/css/var.styl</code>，将配色方案文件里面的几个变量按语法定义如下：</p>
+<figure class="highlight styl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// GitHub Alert Plugins</span></span><br><span class="line"><span class="variable">$github</span>-alert-<span class="attribute">color</span>-note = <span class="number">#0969da</span></span><br><span class="line"><span class="variable">$github</span>-alert-<span class="attribute">color</span>-tip = <span class="number">#1a7f37</span></span><br><span class="line"><span class="variable">$github</span>-alert-<span class="attribute">color</span>-warning = <span class="number">#9a6700</span></span><br><span class="line"><span class="variable">$github</span>-alert-<span class="attribute">color</span>-severe = <span class="number">#bc4c00</span></span><br><span class="line"><span class="variable">$github</span>-alert-<span class="attribute">color</span>-caution = <span class="number">#d1242f</span></span><br><span class="line"><span class="variable">$github</span>-alert-<span class="attribute">color</span>-important = <span class="number">#8250df</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>然后定位到主题样式文件 (还是 <code>themes/butterfly/source/css/</code> 下，这里随便选了 <code>third-party.styl</code>)，将 <code>github-base.css</code> 下对于 html class 的样式定义复制进去；</p>
+</li>
+<li>
+<p>注意这里为了读取 <code>var.styl</code> 下定义的变量，还需要将其中的几个 <code>var(color-note xxx)</code> 改为美元符号引用的形式；例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.markdown-alert.markdown-alert-note &#123;</span><br><span class="line">  border-left-color: $github-alert-color-note;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>刷新，搞定！</p>
+</li>
+</ul>
+<br/>
+<br/>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/notanumbb">notanumbb</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>本文链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/04/17/tools/tools-blog-init-md/">http://example.com/2024/04/17/tools/tools-blog-init-md/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">文章采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/blog/">blog</a></div><div class="post_share"></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/nisepanda_round.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">notanumbb</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/notanumbb" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:notanumbb@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #24292e;"></i></a><a class="social-icon" href="https://weibo.com/u/7903578872" target="_blank" title="weibo"><i class="fa-brands fa-weibo" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn"></i><span>in progress</span></div><div class="announcement_content">我感觉 abtest 的 ab 是 abuse 的 ab
+最近很沮丧
+  [now playing] triangle strategy
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-hexo-%E9%85%8D%E7%BD%AE%E4%B8%8E%E9%83%A8%E7%BD%B2"><span class="toc-text">1 hexo 配置与部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="toc-text">安装 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0-GitHub-Page"><span class="toc-text">部署到 GitHub Page</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9F%BA%E6%9C%AC-hexo-%E5%91%BD%E4%BB%A4"><span class="toc-text">2 基本 hexo 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-picGo-Github-%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A"><span class="toc-text">3 picGo + Github 搭建图床</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-markdown-%E6%B8%B2%E6%9F%93"><span class="toc-text">4 markdown 渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#basic"><span class="toc-text">basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#plugins"><span class="toc-text">plugins</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug-log"><span class="toc-text">bug log</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By notanumbb</div><div class="framework-info"><span>Powered by </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div></div></body></html>
